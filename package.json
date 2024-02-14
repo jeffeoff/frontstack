@@ -7,25 +7,26 @@
   "license": "MIT",
   "devDependencies": {
     "@parcel/transformer-sass": "2.11.0",
-    "jquery": "^3.7.1",
-    "lodash": "^4.17.21",
-    "npm-run-all": "^4.1.5",
+    "eslint": "^8.56.0",
     "parcel": "^2.9.1",
     "parcel-resolver-ignore": "^2.1.5",
     "prettier": "^2.8.3",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "stylelint": "^16.2.1",
+    "stylelint-scss": "^6.1.0"
   },
-  "engines": {
-    "node": ">= 18"
+  "dependencies": {
+    "jquery": "^4.0.0-beta",
+    "lodash": "^4.17.21"
   },
   "scripts": {
-    "format": "run-p format:*",
+    "format": "npm run format:js && npm run format:scss",
     "format:js": "npx prettier --write js/",
-    "format:sass": "npx prettier --write sass/",
-    "sass": "sass scss/main.scss dist/css/main.css",
+    "format:scss": "npx prettier --write scss/",
+    "lint": "npx stylelint scss/**/*.scss && npx eslint js/main.js js/lib/**/*.js js/components/**/*.js",
     "watch": "parcel watch --no-hmr --no-autoinstall",
     "build": "parcel build --no-optimize",
-    "production": "parcel build --no-source-maps --detailed-report"
+    "prod": "npm run lint && parcel build --no-source-maps --detailed-report"
   },
   "targets": {
     "main": false,
@@ -48,5 +49,22 @@
   "parcelIgnore": [
     "dist/*.*",
     "js/vendor/*.*"
-  ]
+  ],
+  "engines": {
+    "node": ">= 18"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "ignorePatterns": [
+      "**/dist/*.js",
+      "**/vendor/*.js"
+    ]
+  }
 }

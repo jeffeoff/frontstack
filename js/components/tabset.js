@@ -1,5 +1,6 @@
-export default function() {
+import $ from 'jquery';
 
+export default function () {
   $(function () {
     initialize_tabs();
   });
@@ -11,7 +12,6 @@ export default function() {
     // we have to have at least two tab buttons to need tab switching
     // functionality.
     if ($allTabButtons.length > 1) {
-
       $allTabs.each(function () {
         const $thisTab = $(this);
 
@@ -21,14 +21,13 @@ export default function() {
     }
   }
 
-
   // ---
   // CLICK / keyboard space/enter button activation EVENTS
   // ---
   function tabs_clickListener($tab) {
     const $tabButtons = $('.tabset__tablist .tabset__tab', $tab);
 
-    $tabButtons.off('click').on('click', function(e) {
+    $tabButtons.off('click').on('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
       const $thisButton = $(this);
@@ -37,20 +36,18 @@ export default function() {
     });
   }
 
-
   // ---
   // KEYBOARD EVENTS FOR VERTICAL TABS
   // ---
   function tabs_keyboardListener($tab) {
     const $tabButtons = $('.tabset__tablist .tabset__tab', $tab);
 
-    $tab.on('keydown', e => {
+    $tab.on('keydown', (e) => {
       const $eventTarget = $(e.target);
       const $focusedTabButton = $tabButtons.filter($eventTarget);
 
       // if already focused on a tab button...
       if ($focusedTabButton.length) {
-
         // ARROW LEFT or UP
         // ---
         // Move to the previous tab button and activate it.
@@ -84,8 +81,6 @@ export default function() {
     });
   }
 
-
-
   // ---
   // Utility functions the Listeners above invoke.
   // ---
@@ -99,7 +94,6 @@ export default function() {
     return $previousTabButton;
   }
 
-
   function getNextTabButton($tabButton) {
     let $nextTabButton = $tabButton.next('.tabset__tab');
 
@@ -110,7 +104,6 @@ export default function() {
     return $nextTabButton;
   }
 
-
   function getLastTabButton($tabButton) {
     const $siblingTabButtons = $tabButton
       .closest('.tabset__tablist')
@@ -119,7 +112,6 @@ export default function() {
 
     return $siblingTabButtons.last();
   }
-
 
   function getFirstTabButton($tabButton) {
     const $siblingTabButtons = $tabButton
@@ -130,7 +122,6 @@ export default function() {
     return $siblingTabButtons.first();
   }
 
-
   function openTabpanel($tabButton) {
     // Step 1.
     // First, disable all other panels in this set.
@@ -139,16 +130,13 @@ export default function() {
       .find('.tabset__tab')
       .not($tabButton);
 
-    $siblingTabButtons.each(function() {
+    $siblingTabButtons.each(function () {
       const $thisTabButton = $(this);
       const controlsID = $thisTabButton.attr('aria-controls');
-      const $thisTabpanel = $('#'+ controlsID);
+      const $thisTabpanel = $('#' + controlsID);
 
       // Disable this button.
-      $thisTabButton
-        .attr('aria-selected', 'false')
-        .attr('tabindex', '-1');
-
+      $thisTabButton.attr('aria-selected', 'false').attr('tabindex', '-1');
 
       // Hide this button's associated panel
       $thisTabpanel.prop('hidden', true);
@@ -158,7 +146,7 @@ export default function() {
     // Step 2.
     // Finally, activate this panel.
     const controlsID = $tabButton.attr('aria-controls');
-    const $tabpanel = $('#'+ controlsID);
+    const $tabpanel = $('#' + controlsID);
 
     // Show this button's associated panel
     $tabButton
@@ -175,5 +163,4 @@ export default function() {
       $tabpanel.addClass('tabset__panel--open');
     }, 5);
   }
-
 }

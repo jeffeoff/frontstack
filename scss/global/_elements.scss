@@ -14,9 +14,7 @@ svg {
 a {
   color: darkblue;
   text-decoration: underline;
-  transition:
-    color 0.2s ease-out,
-    background-color 0.2s ease-out,
+  transition: color 0.2s ease-out, background-color 0.2s ease-out,
     text-decoration 0.2s ease-out;
 
   &:hover,

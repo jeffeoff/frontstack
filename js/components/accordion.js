@@ -1,33 +1,30 @@
-export default function() {
+import $ from 'jquery';
 
-  $(function() {
+export default function () {
+  $(function () {
     initialize_accordions();
   });
-
 
   function initialize_accordions() {
     const $accordionItems = $('.accordion-item');
     const $accordionItemToggles = $('.accordion-item__toggle', $accordionItems);
 
     if ($accordionItemToggles.length) {
-
       // Bind mouse click / keyboard space/enter button activation.
       // ---
-      $accordionItemToggles.off('click').on('click', function(e) {
+      $accordionItemToggles.off('click').on('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
         const $thisToggle = $(this);
 
         if ($thisToggle.attr('aria-expanded') === 'true') {
           closeAccordionItem($thisToggle);
-        }
-        else {
+        } else {
           openAccordionItem($thisToggle);
         }
       });
     }
   }
-
 
   // Work functions invoked by event binds.
   // ---
@@ -49,7 +46,6 @@ export default function() {
     $itemPanel.prop('hidden', true);
   }
 
-
   function openAccordionItem($accordionItemToggle) {
     const $parentItem = $accordionItemToggle.closest('.accordion-item');
     const $itemPanel = $parentItem.find('.accordion-item__panel').first();
@@ -60,5 +56,4 @@ export default function() {
     $itemPanel.prop('hidden', false);
     $itemPanel.slideDown(250); // inline display: block; after 250ms.
   }
-
 }

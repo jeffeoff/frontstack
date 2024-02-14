@@ -1,0 +1,8 @@
+{
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "at-rule-no-vendor-prefix": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/block-no-redundant-nesting": true
+  }
+}

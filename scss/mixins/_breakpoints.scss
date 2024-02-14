@@ -13,11 +13,11 @@
 @mixin desktop() {
   @include up($mobile) {
     @content;
-  };
+  }
 }
 
 @mixin mobile() {
   @include down($mobile) {
     @content;
-  };
+  }
 }
