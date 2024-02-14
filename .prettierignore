@@ -1,0 +1,2 @@
+# Ignore all PHP files so they can pass/validate phpcs.
+*.php

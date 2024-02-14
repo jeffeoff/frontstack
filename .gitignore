@@ -1,0 +1,17 @@
+###
+### Pantheon site .gitignore section
+###
+### Items below the "cut" line are still ignored on
+### the Pantheon site. Items above the "cut" line
+### are ignored in the GitHub repository, but committed
+### to the Pantheon repository.
+###
+
+dist/
+
+# :::::::::::::::::::::: cut ::::::::::::::::::::::
+.DS_Store
+.sass_cache/
+theme.code-workspace
+node_modules/
+!vendor/

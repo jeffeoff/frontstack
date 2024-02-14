@@ -1,0 +1,34 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+
+  @include mobile {
+    scroll-padding-top: 80px;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: serif;
+  color: black;
+  background-color: white;
+  font-weight: 400;
+  font-size: 16px;
+  text-rendering: geometricPrecision;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+}

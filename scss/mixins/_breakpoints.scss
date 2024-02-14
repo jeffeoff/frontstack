@@ -1,0 +1,23 @@
+@mixin up($breakpoint) {
+  @media (min-width: #{$breakpoint + 1}) {
+    @content;
+  }
+}
+
+@mixin down($breakpoint) {
+  @media (max-width: #{$breakpoint}) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  @include up($mobile) {
+    @content;
+  };
+}
+
+@mixin mobile() {
+  @include down($mobile) {
+    @content;
+  };
+}

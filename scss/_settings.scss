@@ -1,0 +1,14 @@
+
+
+$width--xs: 350px; /* small phone breakpoint (iPhone 5, etc.) */
+$width--s: 500px; /* general phone breakpoint */
+$width--m: 800px; /* general tablet portrait breakpoint */
+$width--l: 1100px; /* general tablet landscape breakpoint */
+$width--xl: 1400px; /* general max container width */
+$width--max: 1920px; /* general design max */
+
+
+/**
+* @include mobile() relies on this value.
+*/
+$mobile: $width--l;
