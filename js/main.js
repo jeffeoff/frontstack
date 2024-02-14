@@ -5,7 +5,8 @@
   VENDOR IMPORTS
   Libraries from other sources, should already be minified.
 */
-import $ from "./vendor/jquery-4.0.0-beta.slim.min";
+//import $ from "./vendor/jquery-4.0.0-beta.slim.min";
+import $ from "jquery";
 
 /*
   LIBRARY IMPORTS
@@ -21,7 +22,7 @@ import accordion from "./components/accordion";
 import tabset from "./components/tabset";
 
 
-// easy global/console access to JQuery through '$';
+// Global/console access to JQuery through '$';
 window.$ = $;
 
 

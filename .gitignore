@@ -11,7 +11,7 @@ dist/
 
 # :::::::::::::::::::::: cut ::::::::::::::::::::::
 .DS_Store
-.sass_cache/
+.parcel-cache/
 theme.code-workspace
 node_modules/
 !vendor/
