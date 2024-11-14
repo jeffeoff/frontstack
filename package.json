@@ -23,10 +23,13 @@
     "format": "npm run format:js && npm run format:scss",
     "format:js": "npx prettier --write js/",
     "format:scss": "npx prettier --write scss/",
-    "lint": "npx stylelint scss/**/*.scss && npx eslint js/main.js js/lib/**/*.js js/components/**/*.js",
+    "lint-sass": "npx stylelint scss/**/*.scss",
+    "lint-js": "npx eslint js/main.js js/lib/**/*.js js/components/**/*.js",
+    "lint": "npm run lint-sass && npm run lint-js",
     "watch": "parcel watch --no-hmr --no-autoinstall",
-    "build": "parcel build --no-optimize",
-    "prod": "npm run lint && parcel build --no-source-maps --detailed-report"
+    "raw": "parcel build --no-optimize",
+    "build": "npm run lint && parcel build --no-optimize",
+    "prod": "npm run format && npm run lint && parcel build --no-source-maps --detailed-report"
   },
   "targets": {
     "main": false,
